@@ -1,0 +1,21 @@
+<!-- 该方案的原理是：元素被设置成块级后，会独占一行，如果其宽度没有占满横向空间，那么剩余的空间就处于待分配状态，此时设置 margin: auto; 意味着把剩余的空间分配给 margin，并且左右均分，所以就实现了水平居中。
+
+缺点：需要固定居中元素的宽。 -->
+<style>
+  .outer {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #999;
+  }
+
+  .inner {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    display: block; /* 还可以是 table | flex | grid，但不能是 inline-xxx */
+    margin: 0 auto;
+  }
+</style>
+<div class="outer">
+  <div class="inner">hello world</div>
+</div>

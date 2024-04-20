@@ -1,0 +1,24 @@
+<!-- 该方案的原理是：上面代码中的 text-align: center; 会使文本居中，但是对块级元素无效，如果将元素设置为 inline-block，该元素就会被当做文本对待，从而实现元素居中。
+
+缺点：为了居中元素，使文本也居中了，因此可能需要重置文本位置。
+
+优点：不需要固定居中元素的宽。 -->
+<style>
+  .outer {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #999;
+    text-align: center;
+  }
+
+  .inner {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    display: inline-block;
+    text-align: left; /* 重置文字位置（如果需要） */
+  }
+</style>
+<div class="outer">
+  <div class="inner">hello world</div>
+</div>

@@ -1,0 +1,33 @@
+<style>
+  .heart {
+    position: relative;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: red;
+    transform: rotate(-45deg); /*逆时针旋转45度*/
+  }
+  .heart:before {
+    /*正方形上边绘制圆形*/
+    position: absolute;
+    content: '';
+    top: -50px;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+  }
+  .heart:after {
+    /*正方形右边绘制圆形*/
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+  }
+</style>
+<div class="heart"></div>

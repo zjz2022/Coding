@@ -1,0 +1,37 @@
+<!-- 我们使用justify-content: space-between; 这表示每个纵向的.item在水平方向上的间隔是平均分布的。同时，.container2 .item:last-child的align-self被设置为flex-end，这意味着最后一个项将在其自身的垂直方向上处在底部。 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container 2</title>
+    <style>
+      .common {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        display: flex;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      .container2 {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .container2 .item:last-child {
+        align-self: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container2 common">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

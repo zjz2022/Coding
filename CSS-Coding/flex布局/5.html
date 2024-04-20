@@ -1,0 +1,53 @@
+<!-- .container5的.header, .footer和.main都被设置为flex容器，.header和.footer的垂直对齐方式为平均分布（justify-content: space-between;）。 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container 5</title>
+    <style>
+      .common {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      .container5 .main {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container5 .header,
+      .container5 .footer {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container5 common">
+      <div class="header">
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="main">
+        <div class="item"></div>
+      </div>
+      <div class="footer">
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
+  </body>
+</html>

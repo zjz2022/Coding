@@ -1,0 +1,21 @@
+<!-- 优点：不需要固定居中元素的高。 -->
+<style>
+  .outer {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #999;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .inner {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    display: inline-block;
+    text-align: left; /* 重置文字位置（如果需要） */
+  }
+</style>
+<div class="outer">
+  <div class="inner">hello world</div>
+</div>

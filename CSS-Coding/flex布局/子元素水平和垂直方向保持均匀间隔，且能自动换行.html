@@ -1,0 +1,49 @@
+<!-- 公司正在制作一个新的在线产品展示页面，此页面需要展示产品的缩略图。由于产品数量可能会变化，因此布局需要能适应产品数的增加而做出自动调整。同时，设计团队希望产品图片能在容器内自由地水平和垂直分布，无论容器空间大小如何变化，始终保持均匀的间距。此外，页面需要支持自动换行，使得在浏览器窗口大小变化，或者添加新的产品图片后，行内无法容纳更多图片时，可以自动换行到下一行。
+
+因此，需要实习生编写一个满足要求的HTML和CSS代码段。特别需要注意以下几点：
+
+1. 产品图（在这种情景中，可以将.item视为产品图）应该平均分布在容器中，无论是水平还是垂直方向，都需要保持均匀的间隔。
+2. 如果行内的空间不足以容纳更多的产品图，产品图应该能自动换行到下一行。
+3. 需要考虑到未来可能会添加更多的产品图片，所以应确保布局可以灵活地处理动态数量的图片。
+  
+实习生需要使用Flex布局来解决这个问题，并且通过写出满足要求的代码来展示他们对flex-wrap、justify-content和align-content等Flex布局属性的理解和应用。 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container 1</title>
+    <style>
+      .common {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        display: flex;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      .container1 {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container1 common">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

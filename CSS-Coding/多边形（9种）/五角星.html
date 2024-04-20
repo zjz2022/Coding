@@ -1,0 +1,36 @@
+<style>
+  .five-star {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid red;
+    transform: rotate(35deg);
+  }
+  .five-star:before {
+    position: absolute;
+    top: -45px;
+    left: -65px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 80px solid red;
+    transform: rotate(-35deg);
+  }
+  .five-star:after {
+    position: absolute;
+    top: 3px;
+    left: -105px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 70px solid red;
+    transform: rotate(-70deg);
+  }
+</style>
+<div class="five-star"></div>

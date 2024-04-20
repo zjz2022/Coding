@@ -1,0 +1,33 @@
+<!-- .container9是一个可以在两个方向上拉伸的竖向flex容器，.up和.down在垂直方向上分别占据1/3和2/3的空间，它们自身也是flex容器。在.down区块中，.left和.right在水平方向上分别占据1/2的空间，.left区块自身也是一个flex容器，.item在垂直方向上均匀分布。 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Container 9</title>
+    <style>
+      .common {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        display: flex;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      .container9 {
+        flex-direction: row-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container9 common">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+多行文本溢出隐藏
+<style>
+  div {
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 作为弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 显示的行数 */
+    -webkit-line-clamp: 3;
+    /* 设置伸缩盒子的子元素排列方式：从上到下垂直排列 */
+    -webkit-box-orient: vertical;
+  }
+</style>
+<div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>

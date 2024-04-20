@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <style>
+      .transform-parent {
+        position: relative;
+        height: 100vh;
+        background-color: lightyellow; /* 父元素背景色 */
+        border: 1px solid black; /* 边框 */
+      }
+
+      .transform-child {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: lightsalmon; /* 子元素背景色 */
+        padding: 20px;
+        border: 2px solid purple; /* 子元素边框 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="transform-parent">
+      <div class="transform-child">我在正中间</div>
+    </div>
+  </body>
+</html>

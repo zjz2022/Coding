@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>虚拟列表</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .outside {
+        position: relative;
+        margin: 100px auto;
+        height: 150px;
+        width: 200px;
+        overflow: auto;
+        text-align: left;
+      }
+
+      .main {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+      }
+
+      li {
+        box-sizing: border-box;
+        border: 1px dashed #ddd;
+        height: 30px;
+        text-indent: 10px;
+        font-size: 14px;
+        color: #444;
+        line-height: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="text-align: center">
+      <div class="outside" onscroll="onScroll()">
+        <div class="inside"></div>
+        <ul class="main"></ul>
+      </div>
+    </div>
+    <script>
+      function onScroll() {
+        //需要做节流处理
+        cancelAnimationFrame(rafId)
+        rafId = requestAnimationFrame(handleScroll)
+      }
+      function handleScroll() {
+        const { scrollTop, clientHeight } = outside
+        // 计算每页可以放多少个li
+        const pageSize = Math.ceil(clientHeight / liHeight)
+        // 当前处于第几页
+        const currentPage = Math.floor(scrollTop / (liHeight * pageSize))
+        if (currentPage !== indexPage) {
+          console.log('upDate', currentPage)
+          indexPage = currentPage
+          // 截取数据的初始位置
+          const startIndex = currentPage * pageSize
+          // 截取数据的结束位置（等于2页的数据）
+          const endIndex = startIndex + pageSize * 2
+          const newData = data.slice(startIndex, endIndex)
+          ul.innerHTML = newData.map((o) => `<li>序号:${o.index}、${o.name}</li>`).join('')
+          ul.style.transform = `translate3d(0, ${startIndex * liHeight}px, 0)`
+        }
+      }
+      // 源数据
+      const data = new Array(99999).fill('').map((v, i) => ({ index: i + 1, name: Math.random().toString(16).slice(-10) }))
+      // li的高度
+      const liHeight = 30
+      const outside = document.querySelector('.outside')
+      // 生产真实滚动条
+      document.querySelector('.inside').style.height = `${data.length * liHeight}px`
+      const ul = document.querySelector('ul')
+      // 旧页码
+      let indexPage = -1
+      // 定时器
+      let rafId = 0
+      handleScroll()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!-- 
+  该方案的原理是：在居中元素的父元素上，使用一个伪元素，将这个伪元素设置为 inline-block 后，就好像它原来就是一个真正的 DOM 元素，存在于页面上。然后再将居中元素设置为 inline-block，根据 inline-block 的特性（多个相邻的 inline-block 元素会横向并排显示），居中元素会和伪元素横向并排显示。并且设置 vertical-align: middle; 后，它们会互相垂直对齐，最后将伪元素高度撑起来 height: 100%;，居中元素会对齐伪元素，从而实现了垂直居中。
+
+  优点：不需要固定居中元素的高。
+ -->
+<style>
+  .outer {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #999;
+  }
+  .outer::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  .inner {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #999;
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>
+<div class="outer">
+  <div class="inner">hello world</div>
+</div>
