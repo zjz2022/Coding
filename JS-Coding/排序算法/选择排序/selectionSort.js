@@ -1,0 +1,23 @@
+function selectionSort(arr) {
+  let len = arr.length
+  let minIndex, temp
+  for (let i = 0; i < len - 1; i++) {
+    minIndex = i
+    for (let j = i + 1; j < len; j++) {
+      // 如果 "j" 从 "i+1" 开始，相比从 "i" 开始，理论上可以少做一次无谓的比较（即自身与自身比较）。所以，从效率上说，"j" 从 "i+1" 开始会稍微好一点点。
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j // 存储最小值的索引
+      }
+    }
+    // i 不是最小值时，将 i 和最小值进行交换
+    if (minIndex != i) {
+      // 如果最小值刚好已经在正确的位置，也就是说最小值的索引（minIndex）和该位置的索引（i）已经相等，那么我们就没有必要进行替换操作，因为这并不会改变数组的任何元素。
+      temp = arr[i]
+      arr[i] = arr[minIndex]
+      arr[minIndex] = temp
+    }
+  }
+  return arr
+}
+
+console.log(selectionSort([3, 1, 4, 1, 5, 9, 2])) // [1, 1, 2, 3, 4, 5, 9]
