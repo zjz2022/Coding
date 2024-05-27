@@ -17,6 +17,15 @@ function runMicroTask(callback) {
   }
 }
 
+/**
+ * 判断一个数据是否是Promise对象
+ * @param {any} obj
+ * @returns
+ */
+function isPromise(obj) {
+  return !!(obj && typeof obj === 'object' && typeof obj.then === 'function')
+}
+
 class MyPromise {
   /**
    * 创建一个Promise
@@ -80,7 +89,12 @@ class MyPromise {
         return
       }
       try {
-        executor(this._value)
+        const result = executor(this._value)
+        if (isPromise(result)) {
+          result.then(resolve, reject)
+        } else {
+          resolve(result)
+        }
       } catch (error) {
         reject(error)
       }
@@ -132,37 +146,3 @@ class MyPromise {
     this._changeState(REJECTED, reason)
   }
 }
-
-// setTimeout(() => {
-//   console.log(1)
-// })
-// runMicroTask(() => {
-//   console.log(2)
-// })
-// console.log(3)
-
-const pro = new MyPromise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(1)
-  })
-})
-
-const pro2 = pro.then((data) => {
-  console.log(data)
-  throw 'abc'
-})
-
-setTimeout(() => {
-  console.log(pro2)
-}, 50)
-
-// pro.then(
-//   function A2() {},
-//   function B2() {}
-// )
-// setTimeout(() => {
-//   console.log(pro)
-//   console.log(pro2)
-// }, 1500)
-// pro.then(function A1() {})
-// pro.then(function A2() {})
