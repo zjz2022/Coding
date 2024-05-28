@@ -1,6 +1,7 @@
-const sleep = (time) => {
-  return new Promise((resolve) => setTimeout(resolve, time))
-}
+// const sleep = (time) => {
+//   return new Promise((resolve) => setTimeout(resolve, time))
+// }
+
 const sleep = (time) => {
   return new Promise((resolve) =>
     setTimeout(() => {
@@ -8,6 +9,6 @@ const sleep = (time) => {
     }, time)
   )
 }
-sleep(1000).then(() => {
+sleep(3000).then(() => {
   console.log(1)
 })
