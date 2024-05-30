@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 弹幕
+        // 下次一定
+        var o = {
+            msg: '下次一定',
+            author: '老邓',
+            time: 1,
+        }
+        var o1 = {
+            msg: '上次给了',
+            author: '老邓',
+            time: 2
+        }
+        [
+            {
+            msg: '下次一定',
+            author: '老邓',
+            time: 1,
+            },
+            {
+                msg: '上次给了',
+                author: '老邓',
+                time: 2
+            }
+        ]
+        // 因为有序!!!!!!!!
+        // 数据有序, 
+        var arr = [1,2,3,4,5,6,7,8,10,12,15,20]
+        // 1 ~ 12  (1+12)/2 6
+        // 6 ~ 12 (6 + 12)/2 9
+        // 排队: 从小到大
+
+        // 二分查找
+        // 2 ^ 10 = 1024 10 => 1024
+        // 1000 =》 1000
+        // 在 arr 中查找val
+        function binarySearch(arr, value) {
+            let start = 0;
+            let end = arr.length - 1;
+
+            while(start <= end) {
+                let mid = parseInt((end + start)/2);
+                if (arr[mid] === value) {
+                    return mid;
+                } else if (arr[mid] > value) {
+                    end = mid - 1;
+                } 
+                 else if (arr[mid] < value) {
+                    start = mid + 1;
+                }
+            }
+            return -1;
+        }
+        console.log(binarySearch(arr, 100));
+
+
+
+        //  全阶班    ---  签约就业保障协议 1线城市年薪不低于10万 
+
+        //  两个阶段    --    12999    ---- 9xxx?
+
+        //   level  one    就业部分
+        //   4个月左右          7299   ---  6xxx？
+
+        //   level two     进阶部分
+        //   3个月左右          7599  ----  6xxx?
+
+
+        //   福利*   
+        //  享受大厂内推的名额  
+        //  成哥价值1000元  人生不只有技术大课 
+        //  赠书两套  一套夯实基础 一套强化提升
+        //  Linux服务端全套课程
+
+        //  下课 找自己的学业顾问  ----  分期的  
+
+
+
+    </script>
+</body>
+</html>

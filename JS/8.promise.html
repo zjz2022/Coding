@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise 承诺！
+        // 异步编程的解决方案！
+        // 1.回调地狱。
+        // 2.控制反转。
+        // 3.信任问题。
+
+        // 买饭买菜的小票。
+        // 实例方法:
+        // Promise.prototype.then(suc, err)
+        // Promise.prototype.catch then(null, err)
+        // Promise.prototype.finally 
+
+        // 静态方法
+        // Promise.all 多个Promise任务同时执行，返回所有Promise的结果，出错，返回错的
+        // Promise.race 多个Promise任务同时执行，返回第一个执行完的
+        // Promise.resolve 返回一个成功状态的Promise对象
+        // Promise.reject 返回一个失败状态的Promise对象
+
+        // Promise.all
+        // Promise.resolve(1)
+        let p1 = new Promise(suc => suc(1))
+        let thenable = { 
+            then(suc) {
+                suc(10)
+            }
+        }
+       
+            //    .catch(err => console.log(err))
+        // Promise.all 返回的是一个Promise对象
+        
+        // promises Promise对象的集合
+        Promise.all = function (promises) {
+            return new Promise(function (resolve, reject) {
+                // 记录各个Promise实例value
+                let arr = [];
+                // 记录Promise的执行个数。
+                let index = 0;
+
+                // 遍历promises
+                promises.forEach((item, i) => {
+                    // 判断item是不是thenable对象。
+                    if (isThenable(item)) {
+                        item.then(value => {
+                            arr[i] = value;
+                            if (++index === promises.length) {
+                                resolve(arr);
+                            }
+                        }, reject)
+                    } else {
+                        arr[i] = item;
+                        if (++index === promises.length) {
+                                resolve(arr);
+                        }
+                    }
+                })
+            })
+        }
+        // thenable:
+        // Promise内部规定：
+        // 创建Promise有多种方式创建：
+        // 1. 标准Promise new Promise
+        // 2. 非es6 Promise， 自己实现的 Polyfill
+        // 3. 其他情况，环境不同，浏览器不同
+        
+        // 没办法定义什么样的对象是Primose对象
+        // thenable: 只要有then就行，有then方法的对象或者函数
+        function isThenable(p) {
+            if ((typeof p == 'object' && p !=null) || typeof p == 'function') {
+                if (typeof p.then === 'function') {
+                    return true;
+                }
+            }
+            return false;
+        }
+        Promise.finally = function (cb) {
+            return this.then(
+                value => Promise.resolve(cb()).then(()=>value),
+                err => Promise.resolve(cb()).then(() => {throw err})
+            )
+        }
+        Promise.all([p1, 3, thenable, Promise.reject(4)])
+               .then(val => val)
+               .catch(err => err)
+               .finally(() => {console.log('执行finally函数')})
+               .then(val => console.log(val));
+        
+        // Promise.finally源码
+        
+    </script>
+</body>
+</html>

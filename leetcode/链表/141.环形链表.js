@@ -17,8 +17,20 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
-    
-};
-// @lc code=end
+var hasCycle = function (head) {
+  // 快慢指针是解决环形链表的不二法门
+  let fast = head
+  let slow = head
 
+  while (fast) {
+    if (fast.next === null) {
+      return false
+    }
+    fast = fast.next.next
+    slow = slow.next
+    if (fast === slow) return true
+  }
+
+  return false
+}
+// @lc code=end

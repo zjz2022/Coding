@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function add(a, b) {
+        //     return a + b
+        // }
+        // const _add = (a, b) => a + b;
+        // const fn = a => a * a
+        // // 当参数为一个，（）可以省略
+        // // 当函数体为一行，{} 可以省略
+        // const f = a => b => a + b
+        // function f1(a) {
+        //     return function (b) {
+        //         return a + b
+        //     }
+        // } 
+
+        // 1. 箭头函数，不存在函数声明
+        // 2. 不能使用new
+        // const fn = () => {}
+        // new fn
+        // 3. 没有arguments
+        // const fn = (...arg) => {
+        //     console.log(arg);
+        // }
+        // fn(1,2,3,4,5)
+
+        // this很强，this 绑定规则，绑定上下文中的this
+        // let obj = {
+        //     name: 'obj',
+        //     fn() {
+        //         // 改变作用域中的this
+        //         let fn1 =  () => console.log(this);
+        //         fn1();
+        //     },
+        //     fn1: () => {console.log(this)}
+        // }
+        // // obj.fn(); // this => obj
+        // // obj.fn.call(window) //this => window
+        // var fn = obj.fn1
+        // fn();
+        // obj.fn1.call(obj);
+        // var newFN = fn.bind(obj);
+        // newFN();
+
+        // 箭头函数不是构造函数 没有prototype
+        // 块级作用域{ }
+       
+    </script>
+</body>
+</html>

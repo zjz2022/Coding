@@ -19,8 +19,8 @@
  */
 var addTwoNumbers = function (l1, l2) {
   // p1 和 p2 是遍历两条链表的指针
-  let p1 = l1,
-    p2 = l2
+  let p1 = l1
+  let p2 = l2
 
   // dummy 是一个虚拟节点，p 是用于构建结果链表的指针
   let dummy = new ListNode(-1)
