@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=144 lang=javascript
+ * @lc app=leetcode.cn id=94 lang=javascript
  *
- * [144] 二叉树的前序遍历
+ * [94] 二叉树的中序遍历
  */
 
 // @lc code=start
@@ -17,18 +17,21 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function (root) {
-  let arr = []
-
-  var fun = (node) => {
-    if (node) {
-      arr.push(node.val)
-      fun(node.left)
-      fun(node.right)
+var inorderTraversal = function (root) {
+  const result = []
+  function pushRoot(root) {
+    if (root !== null) {
+      if (root.left !== null) {
+        pushRoot(root.left)
+      }
+      result.push(root.val)
+      if (root.right !== null) {
+        pushRoot(root.right)
+      }
     }
   }
-  fun(root)
-  return arr
+  pushRoot(root)
+  return result
 }
 // @lc code=end
 
@@ -40,4 +43,4 @@ function TreeNode(val, left, right) {
 
 let root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3), null))
 
-console.log(preorderTraversal(root))
+console.log(inorderTraversal(root))

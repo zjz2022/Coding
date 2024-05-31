@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=144 lang=javascript
+ * @lc app=leetcode.cn id=104 lang=javascript
  *
- * [144] 二叉树的前序遍历
+ * [104] 二叉树的最大深度
  */
 
 // @lc code=start
@@ -15,20 +15,11 @@
  */
 /**
  * @param {TreeNode} root
- * @return {number[]}
+ * @return {number}
  */
-var preorderTraversal = function (root) {
-  let arr = []
-
-  var fun = (node) => {
-    if (node) {
-      arr.push(node.val)
-      fun(node.left)
-      fun(node.right)
-    }
-  }
-  fun(root)
-  return arr
+var maxDepth = function (root) {
+  if (!root) return 0
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right))
 }
 // @lc code=end
 
@@ -38,6 +29,10 @@ function TreeNode(val, left, right) {
   this.right = right === undefined ? null : right
 }
 
-let root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3), null))
+let root = new TreeNode(
+  3,
+  new TreeNode(9),
+  new TreeNode(20, new TreeNode(15), new TreeNode(7))
+)
 
-console.log(preorderTraversal(root))
+console.log(maxDepth(root))
