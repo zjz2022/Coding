@@ -1,0 +1,15 @@
+<style>
+  .triangle {
+    width: 0;
+    height: 0;
+    border-width: 100px;
+    border-style: solid;
+    border-color: red;
+    transition: border-color 0s ease-in-out;
+  }
+
+  .triangle.animated {
+    border-color: transparent transparent red transparent;
+  }
+</style>
+<div class="triangle" onclick="this.classList.add('animated')"></div>

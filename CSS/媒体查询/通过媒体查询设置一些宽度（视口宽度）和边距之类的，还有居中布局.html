@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style>
+      .container {
+        margin: 0 auto;
+        width: 50%;
+        padding: 20px;
+        background-color: red;
+      }
+
+      /* 当视口宽度小于600px时 */
+      @media (max-width: 600px) {
+        .container {
+          width: 100%;
+          padding: 10px;
+        }
+      }
+
+      /* 当视口宽度大于900px时 */
+      @media (min-width: 900px) {
+        .container {
+          width: 75%;
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">类容，可以是文本、图片或其他内容。</div>
+  </body>
+</html>
