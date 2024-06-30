@@ -46,6 +46,7 @@ var addTwoNumbers = function (l1, l2) {
 
     // 计算进位
     carry = Math.floor(val / 10)
+
     // 本节点的值应该是对10取余的结果
     val = val % 10
 

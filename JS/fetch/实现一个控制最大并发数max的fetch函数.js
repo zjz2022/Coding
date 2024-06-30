@@ -2,7 +2,9 @@
  * https://www.jianshu.com/p/afae17bb6fc6
  */
 // 一个异步请求的示例
-const fetchDemo = fetch('https://mock.cangdu.org/mock/5fa25923bcab7337c1b1c274/simple_shopping/product_list')
+const fetchDemo = fetch(
+  'https://mock.cangdu.org/mock/5fa25923bcab7337c1b1c274/simple_shopping/product_list'
+)
 
 // 总共需要请求的次数
 const lens = 23
